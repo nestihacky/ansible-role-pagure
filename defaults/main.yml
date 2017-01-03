@@ -26,6 +26,10 @@ pagure_db_host: localhost
 pagure_db_name: pagure
 pagure_db_pass: CHANGE_ME
 
+# kinda redundant for us as we trust root with access
+# but might be useful for someone if postgres is running
+# on different machine. Only used ini alembic.ini for database
+# migrations
 pagure_db_admin_user: postgres
 pagure_db_admin_pass: CHANGE_ME
 

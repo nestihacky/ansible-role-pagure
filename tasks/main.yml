@@ -83,14 +83,13 @@
   when: common_selinux
 
 - name: Manually fix current default ACLs since Ansible doesnt know recursive acls
-  when: acl_updates.changed
   command: /usr/bin/setfacl -Rdm user:apache:rx {{ pagure_datadir }}
-  when: common_selinux
+  when: common_selinux and acl_updates.changed
 
 - name: Manually fix current ACLs since Ansible doesnt know recursive acls
   when: acl_updates.changed
   command: /usr/bin/setfacl -Rm user:apache:rx {{ pagure_datadir }}
-  when: common_selinux
+  when: common_selinux and acl_updates.changed
 
 - name: set sebooleans so pagure can talk to the db
   seboolean: name=httpd_can_network_connect_db

@@ -19,6 +19,7 @@
   - redis
   - libsemanage-python
   - mod_ssl
+  - python-fedora-flask # due to FAS (Fedora Account Services)
   - stunnel
 
 - name: create all the directories where we store the git repos

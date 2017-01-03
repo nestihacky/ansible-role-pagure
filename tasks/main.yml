@@ -1,5 +1,8 @@
 ---
-# Configuration for the pagure webapp
+- name: Add Fedora infrastructure repository
+  copy: src=etc_yum.repos.d_fedora_infrastructure.repo dest=/etc/yum.repos.d/fedora_infrastructure.repo
+  tags:
+    - dependencies
 
 - name: install needed packages
   yum: pkg={{ item }} state=present

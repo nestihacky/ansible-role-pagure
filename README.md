@@ -20,11 +20,11 @@ Dependencies
 Example Playbook
 ----------------
 
-   ---
-   - hosts: pagure
-     sudo: yes
-       roles:
-       - nestihacky.pagure
+    ---
+    - hosts: pagure
+      sudo: yes
+        roles:
+        - nestihacky.pagure
 
 License
 -------

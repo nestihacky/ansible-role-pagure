@@ -106,6 +106,13 @@
                     persistent=true
   when: common_selinux
 
+- seport:
+    ports: "{{ pagure_ssl_listen }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when: common_selinux
+
 - name: Start and enable httpd, postfix, pagure_milter
   service: name={{ item }} enabled=yes state=started
   with_items:

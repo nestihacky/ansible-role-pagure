@@ -22,7 +22,7 @@ pagure_datagrepper_url: ""
 # "https://apps.fedoraproject.org/datagrepper"
 pagure_datagrepper_category: "pagure"
 
-pagure_ssl_listen: 4444
+pagure_ssl_listen: 14444
 #pagure_ssl_cert: "/etc/letsencrypt/live/{{ pagure_domain }}/cert.pem"
 #pagure_ssl_key: "/etc/letsencrypt/live/{{ pagure_domain }}/privkey.pem"
 #pagure_ssl_chain: "/etc/letsencrypt/live/{{ pagure_domain }}/chain.pem"

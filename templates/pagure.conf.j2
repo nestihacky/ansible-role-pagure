@@ -25,13 +25,14 @@ WSGIDaemonProcess paguredocs user=git group=git maximum-requests=1000 display-na
   WSGIScriptAlias / /var/www/pagure.wsgi
 
   SSLEngine on
-  SSLProtocol all -SSLv2 -SSLv3
-  # Use secure TLSv1.1 and TLSv1.2 ciphers
-  Header always add Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"
+  SSLProtocol {{ apache_ssl_protocol }}
+  SSLCipherSuite {{ apache_ssl_cipher_suite }}
 
   SSLCertificateFile {{ pagure_ssl_cert }}
   SSLCertificateChainFile {{ pagure_ssl_chain }}
   SSLCertificateKeyFile {{ pagure_ssl_key }}
+
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 
   Alias /static /usr/lib/python2.7/site-packages/pagure/static/
   Alias /releases /var/www/releases

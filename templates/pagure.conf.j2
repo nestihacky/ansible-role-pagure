@@ -34,6 +34,10 @@ WSGIDaemonProcess paguredocs user=git group=git maximum-requests=1000 display-na
 
   Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 
+  ErrorLog logs/pagure_ssl_error_log
+  TransferLog logs/pagure_ssl_access_log
+  LogLevel warn
+
   Alias /static /usr/lib/python2.7/site-packages/pagure/static/
   Alias /releases /var/www/releases
 
@@ -95,6 +99,10 @@ Listen {{ pagure_ssl_listen }} ssl
   SSLCertificateFile {{ pagure_docs_ssl_cert }}
   SSLCertificateChainFile {{ pagure_docs_ssl_chain }}
   SSLCertificateKeyFile {{ pagure_docs_ssl_key }}
+
+  ErrorLog logs/pagure_docs_ssl_error_log
+  TransferLog logs/pagure_docs_ssl_access_log
+  LogLevel warn
 
   Alias /static /usr/lib/python2.7/site-packages/pagure/static/
 
